@@ -13,5 +13,8 @@
             <sqlFile path="sql_code/TRIGGERS/rollback_scripts/update_job_history_v1.sql" splitStatements="false"/>
         </rollback>
     </changeSet>
+    
+    <includeAll path="sql_code/DML" />
+    <includeAll path="sql_code/SEQUENCES" />
 
 </databaseChangeLog>
