@@ -1,6 +1,6 @@
 -- liquibase formatted sql
 
---changeset 1:DML
+--changeset SamS:DML labels:DML
 INSERT INTO regions VALUES   
         ( 1  
         , 'Europe'   

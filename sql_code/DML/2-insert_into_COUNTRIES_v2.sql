@@ -1,6 +1,6 @@
 -- liquibase formatted sql
 
---changeset 1:DML
+--changeset AnnaG:DML labels:DML
 INSERT INTO countries VALUES   
         ( 'IT'  
         , 'Italy'  

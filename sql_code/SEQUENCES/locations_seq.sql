@@ -1,6 +1,6 @@
 -- liquibase formatted sql
 
---changeset SteveZ:createSEQUENCE_locations_seq labels:STOLO
+--changeset BarbaraR:createSEQUENCE_locations_seq labels:STOLO
 CREATE SEQUENCE locations_seq  
     START WITH     3300  
     INCREMENT BY   100  

@@ -1,6 +1,6 @@
 -- liquibase formatted sql
 
---changeset SteveZ:createSEQUENCE_departments_seq labels:STOLO
+--changeset BarbaraR:createSEQUENCE_departments_seq labels:STOLO
 CREATE SEQUENCE departments_seq  
  START WITH     280  
  INCREMENT BY   10  

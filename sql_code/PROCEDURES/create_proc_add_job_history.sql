@@ -1,6 +1,6 @@
 -- liquibase formatted sql
 
---changeset JoeS:CreatePROC_add_job_history endDelimiter:/ splitStatements:false runOnChange:true labels:STOLO rollbackEndDelimiter:/
+--changeset JoeS:CreatePROC_add_job_history endDelimiter:/ splitStatements:false runOnChange:true rollbackEndDelimiter:/
 CREATE OR REPLACE PROCEDURE add_job_history
  (  p_emp_id          job_history.employee_id%type
   , p_start_date      job_history.start_date%type

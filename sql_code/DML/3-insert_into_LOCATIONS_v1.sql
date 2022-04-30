@@ -1,6 +1,6 @@
 -- liquibase formatted sql
 
---changeset 1:DML
+--changeset AmyD:DML labels:DML
 INSERT INTO locations VALUES   
         ( 1000   
         , '1297 Via Cola di Rie'  

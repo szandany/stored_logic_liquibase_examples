@@ -1,23 +1,7 @@
 -- liquibase formatted sql
 
---changeset TsviZ:create_TABLE_categories runwith:sqlplus 
-CREATE TABLE categories
-( category_id int NOT NULL,
-  category_name char(50) NOT NULL,
-  CONSTRAINT categories_pk PRIMARY KEY (category_id)
-);
 
---rollback drop TABLE categories;
-
---changeset TsviZ:insert_INTO_categories runwith:sqlplus
-INSERT INTO categories
-(category_id, category_name)
-VALUES
-(150, 'Miscellaneous');
-
---rollback delete from categories where category_id=150;
-
---changeset TsviZ:select_from_categories runwith:sqlplus runOnChange:true
+--changeset RobertY:select_from_categories runwith:sqlplus runOnChange:true
 set lines 256
 set trimout on
 set tab off
@@ -28,7 +12,7 @@ spool categories.csv
 SELECT * FROM categories;
 --rollback select * from categories;
 
---changeset TsviZ:create_TABLE_employees3 runwith:sqlplus
+--changeset JerryM:create_TABLE_employees3 runwith:sqlplus
 CREATE TABLE EMPLOYEES3 
    (	"EMPLOYEE_ID" NUMBER(6,0) NOT NULL ENABLE, 
 	"FIRST_NAME" VARCHAR2(20), 

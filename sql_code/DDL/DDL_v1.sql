@@ -1,6 +1,6 @@
 -- liquibase formatted sql
 
---changeset SteveZ:createTable_EMPLOYEES
+--changeset NathanV:createTable_EMPLOYEES
 CREATE TABLE EMPLOYEES
   (	
     EMPLOYEE_ID NUMBER(6,0) NOT NULL ENABLE, 
@@ -18,7 +18,7 @@ CREATE TABLE EMPLOYEES
     )
 --rollback DROP TABLE EMPLOYEES
 
---changeset SteveZ:createTable_JOBS
+--changeset CharlieO:createTable_JOBS
 CREATE TABLE jobs  
     ( job_id         VARCHAR2(10)  
                      CONSTRAINT job_id_pk  
@@ -30,7 +30,7 @@ CREATE TABLE jobs
     )
 --rollback DROP TABLE jobs
 
---changeset SteveZ:createTable_regions 
+--changeset AlissaK:createTable_regions 
 CREATE TABLE regions  
     ( region_id      NUMBER   
                      CONSTRAINT region_id_nn NOT NULL 
@@ -40,7 +40,7 @@ CREATE TABLE regions
     )
 --rollback DROP TABLE regions
 
---changeset SteveZ:createTable_countries 
+--changeset JimL:createTable_countries 
 CREATE TABLE countries   
     ( country_id      CHAR(2)   
                       CONSTRAINT country_id_nn NOT NULL 
@@ -55,7 +55,7 @@ CREATE TABLE countries
     ORGANIZATION INDEX
 --rollback DROP TABLE countries
 
---changeset SteveZ:createTable_locations
+--changeset AdeelM:createTable_locations
 CREATE TABLE locations  
     ( location_id    NUMBER(4)  NOT NULL 
                      CONSTRAINT loc_id_pk  
@@ -72,7 +72,7 @@ CREATE TABLE locations
     )
 --rollback DROP TABLE locations
 
---changeset SteveZ:createTable_departments
+--changeset ChristineM:createTable_departments
 CREATE TABLE departments  
     ( department_id    NUMBER(4) 
                        CONSTRAINT dept_id_pk  
@@ -113,3 +113,11 @@ CREATE TABLE job_history
                        CHECK (end_date > start_date)  
     )
 --rollback drop table job_history
+
+--changeset EricD:create_TABLE_categories
+CREATE TABLE categories
+( category_id int NOT NULL,
+  category_name char(50) NOT NULL,
+  CONSTRAINT categories_pk PRIMARY KEY (category_id)
+);
+--rollback drop TABLE categories;
