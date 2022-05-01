@@ -48,7 +48,7 @@ jobs:
     - name: Reviewing pending SQL changes
       uses: docker://liquibase/liquibase:latest
       with:
-        args: status --verbose --log-level=info
+        args: --url=jdbc:oracle:thin:@127.0.0.1:49161/xe --log-level=info status
         
     - name: Deploying Database Changes
       uses: docker://liquibase/liquibase:latest
