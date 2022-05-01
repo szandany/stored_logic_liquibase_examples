@@ -4,4 +4,7 @@ set tab off
 set pagesize 100
 set trimspool on
 spool categories.csv
-SELECT * FROM categories;
+
+SELECT category_id, category_name 
+FROM 
+categories;

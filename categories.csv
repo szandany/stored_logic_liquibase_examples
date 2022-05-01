@@ -1,4 +1,7 @@
-SQL> SELECT * FROM categories;
+SQL> 
+SQL> SELECT category_id, category_name
+  2  FROM
+  3  categories;
 
 CATEGORY_ID CATEGORY_NAME
 ----------- --------------------------------------------------

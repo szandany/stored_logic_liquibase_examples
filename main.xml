@@ -17,7 +17,10 @@
         </rollback>
     </changeSet>
     <!-- Using the Pro SQL Plus Integration to run plsql -->
-    <changeSet author="RobL" id="plsql_spool_categories_data" labels="TEST" runWith="sqlplus" runOnChange="true" runAlways="true">
+    <changeSet author="RobL" id="plsql_spool_categories_data" labels="SPOOL_TEST" runWith="sqlplus" runOnChange="true" runAlways="true">
+        <preConditions onFail="HALT" onFailMessage="Error: Expected 8 rows">
+            <sqlCheck expectedResult="8">select count(*) from categories</sqlCheck>
+        </preConditions>
         <sqlFile path="sql_code/PROCEDURES/spool_categories_data_sqlplus.sql"/>
     </changeSet>
     <changeSet author="TsviZ" id="plsql_function_dept_salary" runWith="sqlplus" runOnChange="true">
@@ -25,7 +28,7 @@
     </changeSet>
     
     <!-- Using the Pro create trigger change type example -->
-    <changeSet  author="IzzyZ" id="trigger_secure_employees">
+    <changeSet author="IzzyZ" id="trigger_secure_employees">
         <pro:createTrigger disabled="false"  
             path="sql_code/TRIGGERS/secure_employees_v3.sql" 
             scope="both"
@@ -36,5 +39,15 @@
             <pro:disableTrigger scope="both" tableName="employees" triggerName="secure_employees"/> 
         </rollback>
     </changeSet>
-
+    
+    <!-- For Database platforms that do not have the "create or replace function" option (ie, mysql), 
+        the "replaceIfExists="true" option can be used as the change type attribute -->
+    <!-- <changeSet  author="liquibase-docs"  id="createFunction-example" runAlways="true">
+        <pro:createFunction 
+            functionName="GetAllProducts"
+            path="my-logic.sql"
+            replaceIfExists="true">
+        </pro:createFunction>
+    </changeSet> -->
+    
 </databaseChangeLog>
