@@ -10,10 +10,10 @@ on:
 #     branches: [ main ]
 #   pull_request:
 #     branches: [ main ]
-   inputs:
-     tag:
-       description: 'Enter tag to rollback'
-       required: true
+#    inputs:
+#      tag:
+#        description: 'Enter tag to rollback'
+#        required: true
        
 
 env:
