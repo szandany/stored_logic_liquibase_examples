@@ -48,7 +48,7 @@ jobs:
     - name: Reviewing pending SQL changes
       uses: docker://liquibase/liquibase:latest
       with:
-        args: status --verbose
+        args: status --verbose --log-level=info
         
     - name: Deploying Database Changes
       uses: docker://liquibase/liquibase:latest
