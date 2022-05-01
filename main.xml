@@ -5,7 +5,7 @@
     <includeAll path="sql_code/DML"/>
     
     <!-- Handling Stored Logic Using a formatted SQL changelog example -->
-    <include file="sql_code/PROCEDURES/create_proc_add_job_history.sql"/>
+    <include file="sql_code/PROCEDURES/add_job_history.sql"/>
     
     <includeAll path="sql_code/SEQUENCES"/>
     
