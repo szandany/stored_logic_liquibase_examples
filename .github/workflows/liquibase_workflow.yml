@@ -46,4 +46,4 @@ jobs:
     - name: Deploying Database Changes
       uses: docker://liquibase/liquibase:latest
       with:
-        args: update
+        args: update --log-level=info
