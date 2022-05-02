@@ -36,7 +36,7 @@ jobs:
           chmod +x download_liquibase.sh
           ./download_liquibase.sh
           ./liquibase/liquibase --version
-          ./liquibase/liquibase --changeLogFile=main checks run
-          ./liquibase/liquibase --changeLogFile=main --url=jdbc:oracle:thin:@127.0.0.1:49161/xe --username=system --password=oracle status --verbose 
+          ./liquibase/liquibase --changeLogFile=main.xml checks run
+          ./liquibase/liquibase --changeLogFile=main.xml --url=jdbc:oracle:thin:@127.0.0.1:49161/xe --username=system --password=oracle status --verbose 
 
 
