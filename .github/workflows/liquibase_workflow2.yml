@@ -41,5 +41,6 @@ jobs:
           ./download_liquibase.sh
           ./liquibase/liquibase --version
           ./liquibase/liquibase --changeLogFile=main.xml checks run
+          sleep 30
           ./liquibase/liquibase --changeLogFile=main.xml --url=jdbc:oracle:thin:@127.0.0.1:49161/xe --username=system --password=oracle status --verbose 
           ./liquibase/liquibase --changeLogFile=main.xml --url=jdbc:oracle:thin:@127.0.0.1:49161/xe --username=system --password=oracle log-level=info update
