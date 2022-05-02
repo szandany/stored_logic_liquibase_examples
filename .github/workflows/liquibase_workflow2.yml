@@ -2,6 +2,9 @@
 
 name: run_changes_in_sandbox
 
+env:
+  JAVA_OPTS: "-Dserver.port=8086 -Duser.timezone=CST"
+  
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
 on:
