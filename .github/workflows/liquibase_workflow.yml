@@ -49,7 +49,7 @@ jobs:
     - name: Reviewing pending SQL changes
       uses: docker://liquibase/liquibase:latest
       with:
-        args: --url=jdbc:oracle:thin:@oracle:49161/xe --username=system --password=oracle --log-level=info status
+        args: --url=jdbc:localhost:thin:@oracle:49161/xe --username=system --password=oracle --log-level=info status
         
 #     - name: Deploying Database Changes
 #       uses: docker://liquibase/liquibase:latest
