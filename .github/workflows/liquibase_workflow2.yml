@@ -3,6 +3,7 @@
 name: run_changes_in_sandbox
 
 env:
+  LIQUIBASE_PRO_LICENSE_KEY: ${{ secrets.LIQUIBASE_PRO_LICENSE_KEY }}
   JAVA_OPTS: "-Dserver.port=8086 -Duser.timezone=CST"
   
 # Controls when the action will run. Triggers the workflow on push or pull request
