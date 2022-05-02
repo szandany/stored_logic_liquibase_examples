@@ -23,7 +23,6 @@ env:
     LIQUIBASE_COMMAND_PASSWORD: ${{ secrets.LIQUIBASE_COMMAND_PASSWORD }}
     LIQUIBASE_COMMAND_CHANGELOG_FILE: ${{ secrets.LIQUIBASE_COMMAND_CHANGELOG_FILE }}
     JAVA_OPTS: "-Dserver.port=8086 -Duser.timezone=CST"
-    ORACLE_HOST: oracle
 #     LIQUIBASE_HUB_API_KEY: ${{ secrets.LIQUIBASE_HUB_API_KEY }}
     
 jobs:
@@ -32,26 +31,20 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: DEV
-    services:
-      oracle_dev:
-        # Docker Hub image
-        image: oracleinanutshell/oracle-xe-11g
-        ports:
-            - 49161:1521
 
     steps:
     - uses: actions/checkout@v2
-#     - name: Running Quality Checks
-#       uses: docker://liquibase/liquibase:latest
-#       with:
-#         args: checks run
+    - name: Running Quality Checks
+      uses: docker://liquibase/liquibase:latest
+      with:
+        args: checks run
         
     - name: Reviewing pending SQL changes
       uses: docker://liquibase/liquibase:latest
       with:
-        args: --url=jdbc:localhost:thin:@oracle:49161/xe --username=system --password=oracle --log-level=info status
+        args: status --verbose
         
-#     - name: Deploying Database Changes
-#       uses: docker://liquibase/liquibase:latest
-#       with:
-#         args: update
+    - name: Deploying Database Changes
+      uses: docker://liquibase/liquibase:latest
+      with:
+        args: update
