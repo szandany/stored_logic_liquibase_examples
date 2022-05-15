@@ -17,11 +17,14 @@
         </rollback>
     </changeSet>
     <!-- Using the Pro SQL Plus Integration to run plsql -->
-    <changeSet author="RobL" id="plsql_spool_categories_data" labels="SPOOL_TEST,SQLPLUS" runWith="sqlplus" runOnChange="true" runAlways="true">
+    <changeSet author="RobL" id="plsql_check_categories_data" labels="SPOOL_TEST,SQLPLUS" runWith="sqlplus" runOnChange="true" runAlways="true">
         <preConditions onFail="HALT" onFailMessage="Error: Expected 8 rows">
             <sqlCheck expectedResult="8">select count(*) from categories</sqlCheck>
         </preConditions>
         <sqlFile path="sql_code/PROCEDURES/spool_categories_data_sqlplus.sql"/>
+    </changeSet>
+    <changeSet author="LoraL" id="plsql_check_for_invalid_objects" labels="SPOOL_TEST,SQLPLUS" runOrder="last" runWith="sqlplus" runOnChange="true" runAlways="true">
+        <sqlFile path="sql_code/PROCEDURES/spool_invalid_objects_sqlplus.sql"/>
     </changeSet>
     <changeSet author="TsviZ" id="plsql_function_dept_salary" labels="SQLPLUS" runWith="sqlplus" runOnChange="true">
         <sqlFile path="sql_code/FUNCTIONS/function_dept_salary.sql"/>
